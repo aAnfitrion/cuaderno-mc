@@ -1,30 +1,23 @@
 <script lang="ts">
 	import Ranura from '$components/Ranura.svelte';
 
+	import { handle } from '$lib/handleInv';
+
 	let inventario = [{ id: 'tronco_de_roble', cantidad: 0 }];
 
-	function setObjetos(json: any, id: string, nuevaCantidad: number) {
-		for (let i = 0; i < json.length; i++) {
-			if (json[i].id === id) {
-				json[i].cantidad = json[i].cantidad + nuevaCantidad;
-				return;
-			}
+	let accion = true;
+
+	function reposo(tiempo: number) {
+		accion = false;
+		function activar() {
+			accion = true;
 		}
+		setTimeout(activar, tiempo);
 	}
 
 	function handleLog() {
-		let hay = 0;
-		for (let i = 0; i < inventario.length; i++) {
-			const element = inventario[i];
-			if (element.id === 'tronco_de_roble') {
-				hay = 1;
-			}
-		}
-		if (hay === 0) {
-			inventario.push({ id: 'tronco_de_roble', cantidad: 1 });
-		} else {
-			setObjetos(inventario, 'tronco_de_roble', 1);
-		}
+		reposo(1200)
+		handle(inventario, 'tronco_de_roble', 1);
 		inventario = inventario;
 	}
 </script>
@@ -44,22 +37,33 @@
 						<h4 class="h3 font-semibold leading-relaxed">Inventario</h4>
 					</header>
 					<section class="grid grid-cols-9">
-						{#each inventario as epic }
+						{#each inventario as epic}
 							{#if epic.cantidad !== 0}
 								<Ranura id={epic.id} cantidad={epic.cantidad} />
 							{:else}
-								<Ranura id='' cantidad={0} />
+								<Ranura id="" cantidad={0} />
 							{/if}
 						{/each}
 					</section>
 					<footer class="card-footer border-t border-surface-500 flex items-center p-4">
-						<button
-							class="btn btn-sm variant-filled-warning font-semibold"
-							type="button"
-							on:click={handleLog}
-						>
-							Talar arboles
-						</button>
+						{#if accion === true}
+							<button
+								class="btn btn-sm variant-filled-warning font-semibold"
+								type="button"
+								on:click={handleLog}
+							>
+								Talar arboles
+							</button>
+						{:else}
+							<button
+								class="btn btn-sm variant-filled-warning font-semibold"
+								type="button"
+								on:click={handleLog}
+								disabled
+							>
+								Talar arboles
+							</button>
+						{/if}
 					</footer>
 				</div>
 			</div>
