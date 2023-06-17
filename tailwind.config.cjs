@@ -12,6 +12,7 @@ module.exports = {
 	},
 	plugins: [forms, typography, ...skeleton()],
 	safelist: [
-		'bg-[url($assets/tronco_de_roble.png)]'
+		'bg-[url($assets/tronco_de_roble.png)]',
+		'bg-[url($assets/tronco_de_roble_oscuro.png)]',
 	]
 }
