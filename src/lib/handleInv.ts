@@ -17,9 +17,14 @@ function setObjetos(json: any, id: string, nuevaCantidad: number) {
 }
 
 export function handle(json: any, id: string, nuevaCantidad: number) {
-	if (encontrarId(json, 'tronco_de_roble') != true) {
-		json.push({ id: 'tronco_de_roble', cantidad: 1 });
+	if (encontrarId(json, id) != true) {
+		json.push({ id: id, cantidad: 1 });
 	} else {
-		setObjetos(json, 'tronco_de_roble', nuevaCantidad);
+		setObjetos(json, id, nuevaCantidad);
 	}
+}
+
+export function rand() {
+	const randi = Math.floor(Math.random() * 10) + 1;
+	return randi;
 }
