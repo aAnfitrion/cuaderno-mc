@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Ranura from '$components/Ranura.svelte';
 
-	import { handle } from '$lib/handleInv';
+	import { handle, rand } from '$lib/handleInv';
 
 	let inventario = [{ id: 'tronco_de_roble', cantidad: 0 }];
 
@@ -16,8 +16,13 @@
 	}
 
 	function handleLog() {
-		reposo(1200)
-		handle(inventario, 'tronco_de_roble', 1);
+		reposo(0);
+		const randy = rand();
+		if (randy >= 1 && randy <= 8) {
+			handle(inventario, 'tronco_de_roble', 1);
+		} else {
+			handle(inventario, 'tronco_de_roble_oscuro', 1);
+		}
 		inventario = inventario;
 	}
 </script>
@@ -28,7 +33,7 @@
 		<div class="flex items-center justify-center pt-16">
 			<div class="card flex">
 				<div
-					class="bg-[url(https://preview.redd.it/ehvgoqf2grd61.png?width=1920&format=png&auto=webp&s=d6cb17f773a8c058957349fee592e906437176ba)] bg-cover w-64 rounded-l-lg"
+					class="bg-[url(https://preview.redd.it/ehvgoqf2grd61.png?width=1920&format=png&auto=webp&s=d6cb17f773a8c058957349fee592e906437176ba)] bg-cover w-64 rounded-l-lg flex items-center justify-center"
 				>
 					Epics
 				</div>
