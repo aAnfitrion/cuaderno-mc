@@ -4,25 +4,25 @@
 	import { popup } from '@skeletonlabs/skeleton';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
 
-	const popupHover: PopupSettings = {
+	export let id: string, cantidad: number;
+
+	const popupEpic: PopupSettings = {
 		event: 'hover',
-		target: 'popupHover',
+		target: id,
 		placement: 'top'
 	};
-
-	export let id: string, cantidad: number;
 </script>
 
 <div
-	class={`col-span-1 h-16 w-16 border-r border-b border-surface-500 bg-[url($assets/${id}.png)] bg-cover flex items-end justify-end p-1`}
-	use:popup={popupHover}
+	class={`col-span-1 h-16 w-16 border-r border-b border-surface-500 bg-[url($assets/${id}.png)] bg-cover flex items-end justify-end p-1 [&>*]:pointer-events-none`}
+	use:popup={popupEpic}
 >
 	{#if cantidad !== 0}
 		<span class="badge variant-filled-warning">
 			{cantidad}
 		</span>
 	{/if}
-	<div class="card p-4 variant-filled-surface" data-popup="popupHover">
+	<div class="card p-4 variant-filled-surface" data-popup={id}>
 		{#each objetos as compar}
 			{#if compar.id === id}
 				<h5 class="h5 font-semibold">{compar.nombre}</h5>
@@ -37,6 +37,7 @@
 				{:else if compar.rareza === 5}
 					<p class="font-semibold italic text-error-500">Raro</p>
 				{/if}
+				<p class="text-sm">Valor: {compar.valor} esmeraldas</p>
 			{/if}
 		{/each}
 		<div class="arrow variant-filled-surface" />
