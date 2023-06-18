@@ -18,7 +18,7 @@
 	use:popup={popupEpic}
 >
 	{#if cantidad !== 0}
-		<span class="badge variant-filled-warning">
+		<span class="badge bg-primary-500">
 			{cantidad}
 		</span>
 	{/if}
