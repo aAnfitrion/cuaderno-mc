@@ -28,5 +28,23 @@ export const objetos = [
 		nombre: 'Pico de madera',
 		rareza: 1,
 		valor: 5
+	},
+	{
+		id: 'hacha_de_piedra',
+		nombre: 'Hacha de piedra',
+		rareza: 1,
+		valor: 8
+	},
+	{
+		id: 'pico_de_piedra',
+		nombre: 'Pico de piedra',
+		rareza: 1,
+		valor: 8
+	},
+	{
+		id: 'espada_de_piedra',
+		nombre: 'Espada de piedra',
+		rareza: 1,
+		valor: 7
 	}
 ];

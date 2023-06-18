@@ -17,5 +17,8 @@ module.exports = {
 		'bg-[url($assets/roca.png)]',
 		'bg-[url($assets/hacha_de_madera.png)]',
 		'bg-[url($assets/pico_de_madera.png)]',
+		'bg-[url($assets/hacha_de_piedra.png)]',
+		'bg-[url($assets/pico_de_piedra.png)]',
+		'bg-[url($assets/espada_de_piedra.png)]',
 	]
 }
