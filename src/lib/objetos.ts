@@ -46,5 +46,23 @@ export const objetos = [
 		nombre: 'Espada de piedra',
 		rareza: 1,
 		valor: 7
+	},
+	{
+		id: 'huevo_de_gallina',
+		nombre: 'Huevo de gallina',
+		rareza: 2,
+		valor: 4
+	},
+	{
+		id: 'chuleta_de_cerdo',
+		nombre: 'Chuleta de cerdo',
+		rareza: 2,
+		valor: 15
+	},
+	{
+		id: 'filete_de_vaca',
+		nombre: 'Filete de vaca',
+		rareza: 2,
+		valor: 16
 	}
 ];
