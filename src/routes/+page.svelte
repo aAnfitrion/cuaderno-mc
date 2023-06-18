@@ -15,15 +15,39 @@
 		setTimeout(activar, tiempo);
 	}
 
+	import { Motion, useMotionValue, animate } from 'svelte-motion';
+
+	const rotate = useMotionValue(0);
+	let animation = {};
+	const click = () => {
+		if (animation.stop) {
+			animation.stop();
+			animation = {};
+		} else {
+			animation = animate(rotate, rotate.get() + 360, {
+				type: 'spring',
+				duration: 100,
+				stiffness: 100,
+				onComplete: (v) => {
+					animation = {};
+				}
+			});
+		}
+	};
+
+	let objetoSuerte: string;
 	function handleLog() {
-		reposo(0);
+		reposo(1200);
 		const randy = rand();
 		if (randy >= 1 && randy <= 8) {
 			handle(inventario, 'tronco_de_roble', 1);
+			objetoSuerte = 'tronco_de_roble';
 		} else {
 			handle(inventario, 'tronco_de_roble_oscuro', 1);
+			objetoSuerte = 'tronco_de_roble_oscuro';
 		}
 		inventario = inventario;
+		click();
 	}
 </script>
 
@@ -33,9 +57,11 @@
 		<div class="flex items-center justify-center pt-16">
 			<div class="card flex">
 				<div
-					class="bg-[url(https://preview.redd.it/ehvgoqf2grd61.png?width=1920&format=png&auto=webp&s=d6cb17f773a8c058957349fee592e906437176ba)] bg-cover w-64 rounded-l-lg flex items-center justify-center"
+					class="bg-[url(https://preview.redd.it/ehvgoqf2grd61.png?width=1920&format=png&auto=webp&s=d6cb17f773a8c058957349fee592e906437176ba)] bg-cover w-64 rounded-l-lg flex items-center justify-center "
 				>
-					Epics
+					<Motion style={{ rotate }} let:motion>
+						<div class={`bg-[url($assets/${objetoSuerte}.png)] bg-cover w-24 h-24`} use:motion />
+					</Motion>
 				</div>
 				<div class="">
 					<header class="card-header border-b border-surface-500">
