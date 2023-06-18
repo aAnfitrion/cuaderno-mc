@@ -44,6 +44,9 @@
 		if (encontrarCantidad(inventario, 'hacha_de_madera', 1)) {
 			velocidadDeAccion = 1000;
 		}
+		if (encontrarCantidad(inventario, 'hacha_de_piedra', 1)) {
+			velocidadDeAccion = 800;
+		}
 		reposo(velocidadDeAccion);
 	}
 
@@ -51,7 +54,16 @@
 		if (encontrarCantidad(inventario, 'pico_de_madera', 1)) {
 			velocidadDeAccion = 1200;
 		}
+		if (encontrarCantidad(inventario, 'pico_de_piedra', 1)) {
+			velocidadDeAccion = 1000;
+		}
 		reposo(velocidadDeAccion);
+	}
+
+	function nivelDeEspada() {
+		if (encontrarCantidad(inventario, 'espada_de_piedra', 1)) {
+			velocidadDeAccion = 5000;
+		}
 	}
 
 	function handleLog() {
@@ -77,6 +89,10 @@
 		objetoSuerte = randRock(inventario, 'roca');
 		inventario = inventario;
 		click();
+	}
+
+	function handleHunt() {
+
 	}
 
 	import { recetas } from '$lib/recetas';
@@ -118,7 +134,7 @@
 					<footer class="card-footer border-t border-surface-500 flex items-center gap-2 p-4">
 						{#if accion === true}
 							<button
-								class="btn btn-sm variant-filled-success font-semibold"
+								class="btn btn-sm variant-filled-warning font-semibold"
 								type="button"
 								on:click={handleLog}
 							>
@@ -126,11 +142,20 @@
 							</button>
 							{#if encontrarCantidad(inventario, 'pico_de_madera', 1)}
 								<button
-									class="btn btn-sm bg-neutral-500 text-primary-900 font-semibold"
+									class="btn btn-sm variant-filled-warning font-semibold"
 									type="button"
 									on:click={handleRock}
 								>
 									Minar en la cueva
+								</button>
+							{/if}
+							{#if encontrarCantidad(inventario, 'espada_de_piedra', 1)}
+								<button
+									class="btn btn-sm variant-filled-warning font-semibold"
+									type="button"
+									on:click={handleHunt}
+								>
+									Cazar animales
 								</button>
 							{/if}
 						{:else}
