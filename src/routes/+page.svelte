@@ -59,6 +59,7 @@
 	}
 
 	import { recetas } from '$lib/recetas';
+	import BotonCraftear from '$components/BotonCraftear.svelte';
 
 	let recetaSeleccionada: string;
 
@@ -167,16 +168,9 @@
 							<h3 class="h3 font-semibold text-end">Mesa de crafteo</h3>
 						</header>
 						<section class="grid grid-cols-7 gap-2 p-2">
-							<button
-								class="btn variant-ghost-surface col-span-1 h-16 w-16 rounded-lg bg-[url($assets/hacha_de_madera.png)] bg-cover"
-								type="button"
-								on:click={() => (recetaSeleccionada = 'hacha_de_madera')}
-							/>
-							<button
-								class="btn variant-ghost-surface col-span-1 h-16 w-16 rounded-lg bg-[url($assets/pico_de_madera.png)] bg-cover"
-								type="button"
-								on:click={() => (recetaSeleccionada = 'pico_de_madera')}
-							/>
+							{#each recetas as receta}
+								<BotonCraftear id={receta.id} bind:recetaSeleccionada={recetaSeleccionada} />
+							{/each}
 						</section>
 					</div>
 				</div>

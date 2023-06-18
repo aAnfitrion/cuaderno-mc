@@ -14,5 +14,7 @@ module.exports = {
 	safelist: [
 		'bg-[url($assets/tronco_de_roble.png)]',
 		'bg-[url($assets/tronco_de_roble_oscuro.png)]',
+		'bg-[url($assets/hacha_de_madera.png)]',
+		'bg-[url($assets/hacha_de_madera.png)]',
 	]
 }
