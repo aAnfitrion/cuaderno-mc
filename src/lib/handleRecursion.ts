@@ -1,9 +1,9 @@
 import { rand, handle } from './handleInv';
 
-export function randRock(arr: any, id: string) {
+export function randRock(arr: any) {
   const randy = rand();
   if (randy >= 1 && randy <= 10) {
-		handle(arr, id, 1);
-		return id;
+		handle(arr, 'roca', 1);
+		return 'roca';
   }
 }

@@ -86,7 +86,7 @@
 
 	function handleRock() {
 		nivelDePico();
-		objetoSuerte = randRock(inventario, 'roca');
+		objetoSuerte = randRock(inventario);
 		inventario = inventario;
 		click();
 	}
