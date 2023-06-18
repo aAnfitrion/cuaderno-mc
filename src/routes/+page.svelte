@@ -40,8 +40,15 @@
 	let desbloquearCrafteos: boolean;
 	let velocidadDeTalado = 1200;
 
-	function handleLog() {
+	function nivelDeHacha() {
+		if (encontrarCantidad(inventario, 'hacha_de_madera', 1)) {
+			velocidadDeTalado = 1000
+		}
 		reposo(velocidadDeTalado);
+	}
+
+	function handleLog() {
+		nivelDeHacha();
 		const randy = rand();
 		if (randy >= 1 && randy <= 6) {
 			handle(inventario, 'tronco_de_roble', 1);
