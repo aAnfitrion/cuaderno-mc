@@ -64,6 +64,7 @@
 		if (encontrarCantidad(inventario, 'espada_de_piedra', 1)) {
 			velocidadDeAccion = 5000;
 		}
+		reposo(velocidadDeAccion);
 	}
 
 	function handleLog() {
@@ -92,13 +93,16 @@
 	}
 
 	function handleHunt() {
-
+		nivelDeEspada();
+		objetoSuerte = randHunt(inventario);
+		inventario = inventario;
+		click();
 	}
 
 	import { recetas } from '$lib/recetas';
 	import BotonCraftear from '$components/BotonCraftear.svelte';
 	import { handleCraft } from '$lib/handleCraft';
-	import { randRock } from '$lib/handleRecursion';
+	import { randHunt, randRock } from '$lib/handleRecursion';
 
 	let recetaSeleccionada: string;
 

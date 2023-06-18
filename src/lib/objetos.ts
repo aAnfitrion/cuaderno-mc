@@ -64,5 +64,11 @@ export const objetos = [
 		nombre: 'Filete de vaca',
 		rareza: 2,
 		valor: 16
+	},
+	{
+		id: 'barrera',
+		nombre: 'Barrera',
+		rareza: 616,
+		valor: 960192616
 	}
 ];

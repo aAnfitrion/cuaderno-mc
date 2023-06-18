@@ -23,5 +23,6 @@ module.exports = {
 		'bg-[url($assets/huevo_de_gallina.png)]',
 		'bg-[url($assets/chuleta_de_cerdo.png)]',
 		'bg-[url($assets/filete_de_vaca.png)]',
+		'bg-[url($assets/barrera.png)]',
 	]
 }
