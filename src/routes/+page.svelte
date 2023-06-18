@@ -38,13 +38,20 @@
 
 	let objetoSuerte: string;
 	let desbloquearCrafteos: boolean;
-	let velocidadDeTalado = 1200;
+	let velocidadDeAccion = 1200;
 
 	function nivelDeHacha() {
 		if (encontrarCantidad(inventario, 'hacha_de_madera', 1)) {
-			velocidadDeTalado = 1000
+			velocidadDeAccion = 1000;
 		}
-		reposo(velocidadDeTalado);
+		reposo(velocidadDeAccion);
+	}
+
+	function nivelDePico() {
+		if (encontrarCantidad(inventario, 'pico_de_madera', 1)) {
+			velocidadDeAccion = 1200;
+		}
+		reposo(velocidadDeAccion);
 	}
 
 	function handleLog() {
@@ -63,6 +70,16 @@
 		if (encontrarCantidad(inventario, 'tronco_de_roble_oscuro', 3)) {
 			desbloquearCrafteos = true;
 		}
+	}
+
+	function handleRock() {
+		nivelDePico();
+		if (rand() >= 1) {
+			handle(inventario, 'roca', 1);
+			objetoSuerte = 'roca';
+		}
+		inventario = inventario;
+		click();
 	}
 
 	import { recetas } from '$lib/recetas';
@@ -100,23 +117,27 @@
 							{/if}
 						{/each}
 					</section>
-					<footer class="card-footer border-t border-surface-500 flex items-center p-4">
+					<footer class="card-footer border-t border-surface-500 flex items-center gap-2 p-4">
 						{#if accion === true}
 							<button
-								class="btn btn-sm variant-filled-warning font-semibold"
+								class="btn btn-sm variant-filled-success font-semibold"
 								type="button"
 								on:click={handleLog}
 							>
 								Talar arboles
 							</button>
+							{#if encontrarCantidad(inventario, 'pico_de_madera', 1)}
+								<button
+									class="btn btn-sm bg-neutral-500 text-primary-900 font-semibold"
+									type="button"
+									on:click={handleRock}
+								>
+									Minar en la cueva
+								</button>
+							{/if}
 						{:else}
-							<button
-								class="btn btn-sm variant-filled-warning font-semibold"
-								type="button"
-								on:click={handleLog}
-								disabled
-							>
-								Talar arboles
+							<button type="button" class="btn btn-sm variant-filled-surface" disabled>
+								Reposando...
 							</button>
 						{/if}
 					</footer>
