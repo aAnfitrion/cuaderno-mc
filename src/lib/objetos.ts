@@ -10,5 +10,11 @@ export const objetos = [
 		nombre: 'Tronco de roble oscuro',
 		rareza: 2,
 		valor: 2
+	},
+	{
+		id: 'hacha_de_madera',
+		nombre: 'Hacha de madera',
+		rareza: 1,
+		valor: 5
 	}
 ];
