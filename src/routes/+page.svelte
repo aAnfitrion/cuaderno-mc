@@ -70,7 +70,18 @@
 				restarObjetos(inventario, 'tronco_de_roble_oscuro', 3);
 				restarObjetos(inventario, 'tronco_de_roble', 2);
 				handle(inventario, 'hacha_de_madera', 1);
-				velocidadDeTalado = 1100;
+				velocidadDeTalado = 1000;
+				inventario = inventario;
+			}
+		}
+		if (recetaSeleccionada === 'pico_de_madera') {
+			const v1 = encontrarCantidad(inventario, 'tronco_de_roble_oscuro', 3);
+			const v2 = encontrarCantidad(inventario, 'tronco_de_roble', 2);
+			if (v1 && v2) {
+				restarObjetos(inventario, 'tronco_de_roble_oscuro', 3);
+				restarObjetos(inventario, 'tronco_de_roble', 2);
+				handle(inventario, 'pico_de_madera', 1);
+				velocidadDeTalado = 1000;
 				inventario = inventario;
 			}
 		}
@@ -126,9 +137,9 @@
 		{#if desbloquearCrafteos}
 			<div class="flex items-center justify-center pt-8">
 				<div class="card flex">
-					<div class="grid grid-cols-4 gap-2 p-4">
-						{#each recetas as receta}
-							{#if receta.id === recetaSeleccionada}
+					{#each recetas as receta}
+						{#if receta.id === recetaSeleccionada}
+							<div class="grid grid-cols-4 gap-2 p-4">
 								<MesaDeCrafteo
 									x1={receta.y1}
 									x2={receta.y2}
@@ -141,18 +152,16 @@
 									x9={receta.y9}
 									resultado={receta.id}
 								/>
-							{:else}
-								<MesaDeCrafteo x1="" x2="" x3="" x4="" x5="" x6="" x7="" x8="" x9="" resultado="" />
-							{/if}
-						{/each}
-						<button
-							type="button"
-							class="btn variant-ghost-success rounded-lg col-span-1 h-16 w-16 text-sm font-semibold"
-							on:click={crear}
-						>
-							Craftear
-						</button>
-					</div>
+								<button
+									type="button"
+									class="btn variant-ghost-success rounded-lg col-span-1 h-16 w-16 text-sm font-semibold"
+									on:click={crear}
+								>
+									Craftear
+								</button>
+							</div>
+						{/if}
+					{/each}
 					<div class="border-l border-surface-500">
 						<header class="card-header border-b border-surface-500 p-4">
 							<h3 class="h3 font-semibold text-end">Mesa de crafteo</h3>
@@ -162,6 +171,11 @@
 								class="btn variant-ghost-surface col-span-1 h-16 w-16 rounded-lg bg-[url($assets/hacha_de_madera.png)] bg-cover"
 								type="button"
 								on:click={() => (recetaSeleccionada = 'hacha_de_madera')}
+							/>
+							<button
+								class="btn variant-ghost-surface col-span-1 h-16 w-16 rounded-lg bg-[url($assets/pico_de_madera.png)] bg-cover"
+								type="button"
+								on:click={() => (recetaSeleccionada = 'pico_de_madera')}
 							/>
 						</section>
 					</div>
