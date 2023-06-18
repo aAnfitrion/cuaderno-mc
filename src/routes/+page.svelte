@@ -2,7 +2,7 @@
 	import MesaDeCrafteo from '$components/MesaDeCrafteo.svelte';
 	import Ranura from '$components/Ranura.svelte';
 
-	import { handle, rand, encontrarCantidad, restarObjetos } from '$lib/handleInv';
+	import { handle, rand, encontrarCantidad } from '$lib/handleInv';
 
 	let inventario = [{ id: 'tronco_de_roble', cantidad: 0 }];
 
@@ -43,7 +43,7 @@
 	function handleLog() {
 		reposo(velocidadDeTalado);
 		const randy = rand();
-		if (randy >= 1 && randy <= 8) {
+		if (randy >= 1 && randy <= 6) {
 			handle(inventario, 'tronco_de_roble', 1);
 			objetoSuerte = 'tronco_de_roble';
 		} else {
@@ -60,32 +60,13 @@
 
 	import { recetas } from '$lib/recetas';
 	import BotonCraftear from '$components/BotonCraftear.svelte';
+	import { handleCraft } from '$lib/handleCraft';
 
 	let recetaSeleccionada: string;
 
 	function crear() {
-		if (recetaSeleccionada === 'hacha_de_madera') {
-			const v1 = encontrarCantidad(inventario, 'tronco_de_roble_oscuro', 3);
-			const v2 = encontrarCantidad(inventario, 'tronco_de_roble', 2);
-			if (v1 && v2) {
-				restarObjetos(inventario, 'tronco_de_roble_oscuro', 3);
-				restarObjetos(inventario, 'tronco_de_roble', 2);
-				handle(inventario, 'hacha_de_madera', 1);
-				velocidadDeTalado = 1000;
-				inventario = inventario;
-			}
-		}
-		if (recetaSeleccionada === 'pico_de_madera') {
-			const v1 = encontrarCantidad(inventario, 'tronco_de_roble_oscuro', 3);
-			const v2 = encontrarCantidad(inventario, 'tronco_de_roble', 2);
-			if (v1 && v2) {
-				restarObjetos(inventario, 'tronco_de_roble_oscuro', 3);
-				restarObjetos(inventario, 'tronco_de_roble', 2);
-				handle(inventario, 'pico_de_madera', 1);
-				velocidadDeTalado = 1000;
-				inventario = inventario;
-			}
-		}
+		handleCraft(recetaSeleccionada, inventario);
+		inventario = inventario;
 	}
 </script>
 
@@ -169,7 +150,7 @@
 						</header>
 						<section class="grid grid-cols-7 gap-2 p-2">
 							{#each recetas as receta}
-								<BotonCraftear id={receta.id} bind:recetaSeleccionada={recetaSeleccionada} />
+								<BotonCraftear id={receta.id} bind:recetaSeleccionada />
 							{/each}
 						</section>
 					</div>
