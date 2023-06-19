@@ -87,14 +87,20 @@
 
 	function handleRock() {
 		nivelDePico();
-		objetoSuerte = randRock(inventario);
+		const rock = randRock(inventario);
+		if (typeof rock === 'string') {
+			objetoSuerte = rock;
+		}
 		inventario = inventario;
 		click();
 	}
 
 	function handleHunt() {
 		nivelDeEspada();
-		objetoSuerte = randHunt(inventario);
+		const hunt = randHunt(inventario);
+		if (typeof hunt === 'string') {
+			objetoSuerte = hunt;
+		}
 		inventario = inventario;
 		click();
 	}

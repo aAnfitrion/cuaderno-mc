@@ -1,4 +1,6 @@
-function encontrarId(array: any, id: string) {
+import type { inv } from './tipos';
+
+function encontrarId(array: inv[], id: string) {
 	for (let i = 0; i < array.length; i++) {
 		const element = array[i];
 		if (element.id === id) {
@@ -7,7 +9,7 @@ function encontrarId(array: any, id: string) {
 	}
 }
 
-export function encontrarCantidad(array: any, id: string, cantidad: number) {
+export function encontrarCantidad(array: inv[], id: string, cantidad: number) {
 	for (let i = 0; i < array.length; i++) {
 		const element = array[i];
 		if (element.id === id) {
@@ -18,7 +20,7 @@ export function encontrarCantidad(array: any, id: string, cantidad: number) {
 	}
 }
 
-function setObjetos(json: any, id: string, nuevaCantidad: number) {
+function setObjetos(json: inv[], id: string, nuevaCantidad: number) {
 	for (let i = 0; i < json.length; i++) {
 		if (json[i].id === id) {
 			json[i].cantidad = json[i].cantidad + nuevaCantidad;
@@ -27,7 +29,7 @@ function setObjetos(json: any, id: string, nuevaCantidad: number) {
 	}
 }
 
-export function restarObjetos(json: any, id: string, nuevaCantidad: number) {
+export function restarObjetos(json: inv[], id: string, nuevaCantidad: number) {
 	for (let i = 0; i < json.length; i++) {
 		if (json[i].id === id) {
 			json[i].cantidad = json[i].cantidad - nuevaCantidad;
@@ -36,7 +38,7 @@ export function restarObjetos(json: any, id: string, nuevaCantidad: number) {
 	}
 }
 
-export function handle(json: any, id: string, nuevaCantidad: number) {
+export function handle(json: inv[], id: string, nuevaCantidad: number) {
 	if (encontrarId(json, id) != true) {
 		json.push({ id: id, cantidad: 1 });
 	} else {
