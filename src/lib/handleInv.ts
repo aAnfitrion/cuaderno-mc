@@ -1,4 +1,12 @@
-import type { inv } from './tipos';
+export interface inv {
+	id: string;
+	cantidad: number;
+}
+
+export function rand() {
+	const randi = Math.floor(Math.random() * 100) + 1;
+	return randi;
+}
 
 function encontrarId(array: inv[], id: string) {
 	for (let i = 0; i < array.length; i++) {
@@ -20,10 +28,10 @@ export function encontrarCantidad(array: inv[], id: string, cantidad: number) {
 	}
 }
 
-function setObjetos(json: inv[], id: string, nuevaCantidad: number) {
-	for (let i = 0; i < json.length; i++) {
-		if (json[i].id === id) {
-			json[i].cantidad = json[i].cantidad + nuevaCantidad;
+function setObjetos(array: inv[], id: string, nuevaCantidad: number) {
+	for (let i = 0; i < array.length; i++) {
+		if (array[i].id === id) {
+			array[i].cantidad = array[i].cantidad + nuevaCantidad;
 			return;
 		}
 	}
@@ -38,15 +46,10 @@ export function restarObjetos(json: inv[], id: string, nuevaCantidad: number) {
 	}
 }
 
-export function handle(json: inv[], id: string, nuevaCantidad: number) {
-	if (encontrarId(json, id) != true) {
-		json.push({ id: id, cantidad: 1 });
+export function handle(array: inv[], id: string, nuevaCantidad: number) {
+	if (encontrarId(array, id) != true) {
+		array.push({ id: id, cantidad: 1 });
 	} else {
-		setObjetos(json, id, nuevaCantidad);
+		setObjetos(array, id, nuevaCantidad);
 	}
-}
-
-export function rand() {
-	const randi = Math.floor(Math.random() * 10) + 1;
-	return randi;
 }

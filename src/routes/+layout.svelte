@@ -45,5 +45,11 @@
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
+	<div
+		class="bg-surface-700 flex justify-center my-8 max-w-screen-md mx-auto rounded-lg font-semibold"
+	>
+		<a href="/" class="btn"> Inventario </a>
+		<a href="/mesa-de-crafteo" class="btn"> Mesa de crafteo </a>
+	</div>
 	<slot />
 </AppShell>
