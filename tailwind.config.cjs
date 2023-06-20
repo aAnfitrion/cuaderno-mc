@@ -11,18 +11,4 @@ module.exports = {
 		extend: {},
 	},
 	plugins: [forms, typography, ...skeleton()],
-	safelist: [
-		'bg-[url($assets/tronco_de_roble.png)]',
-		'bg-[url($assets/tronco_de_roble_oscuro.png)]',
-		'bg-[url($assets/roca.png)]',
-		'bg-[url($assets/hacha_de_madera.png)]',
-		'bg-[url($assets/pico_de_madera.png)]',
-		'bg-[url($assets/hacha_de_piedra.png)]',
-		'bg-[url($assets/pico_de_piedra.png)]',
-		'bg-[url($assets/espada_de_piedra.png)]',
-		'bg-[url($assets/huevo_de_gallina.png)]',
-		'bg-[url($assets/chuleta_de_cerdo.png)]',
-		'bg-[url($assets/filete_de_vaca.png)]',
-		'bg-[url($assets/barrera.png)]',
-	]
 }
