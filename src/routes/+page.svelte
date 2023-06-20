@@ -30,7 +30,6 @@
 		nivelDeEspada,
 		randMeat
 	} from '$lib/handleRecursion';
-	import MostrarSuerte from '$components/MostrarSuerte.svelte';
 
 	let inventario: inv[];
 	let objetoSuerte: string;
@@ -88,8 +87,10 @@
 					class="bg-[url(https://preview.redd.it/ehvgoqf2grd61.png?width=1920&format=png&auto=webp&s=d6cb17f773a8c058957349fee592e906437176ba)] bg-cover w-64 rounded-l-lg flex items-center justify-center"
 				>
 					<Motion style={{ rotate }} let:motion>
-						<div use:motion>
-							<MostrarSuerte suerte={objetoSuerte} />
+						<div use:motion class="h-24 w-24">
+							{#if objetoSuerte}
+								<img src={`src/assets/${objetoSuerte}.png`} alt={objetoSuerte} />
+							{/if}
 						</div>
 					</Motion>
 				</div>

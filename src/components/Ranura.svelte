@@ -14,11 +14,13 @@
 </script>
 
 <div
-	class={`col-span-1 h-16 w-16 border-r border-b border-surface-500 bg-[url($assets/${id}.png)] bg-cover flex items-end justify-end p-1 [&>*]:pointer-events-none`}
+	class={`col-span-1 h-16 w-16 border-r border-b border-surface-500 flex items-end justify-end p-1 [&>*]:pointer-events-none inline-block`}
 	use:popup={popupEpic}
 >
+	<img src={`src/assets/${id}.png`} alt={id} />
+
 	{#if cantidad !== 0}
-		<span class="badge bg-primary-500">
+		<span class="badge bg-primary-500 z-10 absolute">
 			{cantidad}
 		</span>
 	{/if}
