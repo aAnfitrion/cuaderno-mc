@@ -22,7 +22,15 @@
 
 	import { encontrarCantidad, type inv } from '$lib/handleInv';
 	import { inventarioStore } from '$lib/inventario';
-	import { randLog, nivelDeHacha, randRock, nivelDePico, nivelDeEspada, randMeat } from '$lib/handleRecursion';
+	import {
+		randLog,
+		nivelDeHacha,
+		randRock,
+		nivelDePico,
+		nivelDeEspada,
+		randMeat
+	} from '$lib/handleRecursion';
+	import MostrarSuerte from '$components/MostrarSuerte.svelte';
 
 	let inventario: inv[];
 	let objetoSuerte: string;
@@ -80,7 +88,9 @@
 					class="bg-[url(https://preview.redd.it/ehvgoqf2grd61.png?width=1920&format=png&auto=webp&s=d6cb17f773a8c058957349fee592e906437176ba)] bg-cover w-64 rounded-l-lg flex items-center justify-center"
 				>
 					<Motion style={{ rotate }} let:motion>
-						<div class={`bg-[url($assets/${objetoSuerte}.png)] bg-cover w-24 h-24`} use:motion />
+						<div use:motion>
+							<MostrarSuerte suerte={objetoSuerte} />
+						</div>
 					</Motion>
 				</div>
 				<div class="">
