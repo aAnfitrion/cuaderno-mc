@@ -13,13 +13,13 @@
 </script>
 
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x1}.png`} alt={x1} />
+	<img src={`/img/${x1}.png`} alt={x1} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x2}.png`} alt={x2} />
+	<img src={`/img/${x2}.png`} alt={x2} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x3}.png`} alt={x3} />
+	<img src={`/img/${x3}.png`} alt={x3} />
 </div>
 {#if permitir}
 	<div class="col-span-1 h-16 w-16 btn rounded-lg text-sm variant-ghost-success font-semibold">
@@ -33,23 +33,23 @@
 	<div class="col-span-1 h-16 w-16" />
 {/if}
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x4}.png`} alt={x4} />
+	<img src={`/img/${x4}.png`} alt={x4} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x5}.png`} alt={x5} />
+	<img src={`/img/${x5}.png`} alt={x5} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x6}.png`} alt={x6} />
+	<img src={`/img/${x6}.png`} alt={x6} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${resultado}.png`} alt={resultado} />
+	<img src={`/img/${resultado}.png`} alt={resultado} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x7}.png`} alt={x7} />
+	<img src={`/img/${x7}.png`} alt={x7} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x8}.png`} alt={x8} />
+	<img src={`/img/${x8}.png`} alt={x8} />
 </div>
 <div class={`col-span-1 h-16 w-16 border border-surface-500`}>
-	<img src={`src/assets/${x9}.png`} alt={x9} />
+	<img src={`/img/${x9}.png`} alt={x9} />
 </div>

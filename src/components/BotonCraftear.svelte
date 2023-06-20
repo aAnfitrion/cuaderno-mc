@@ -8,5 +8,5 @@
 	type="button"
 	on:click={() => (recetaSeleccionada = id)}
 >
-	<img class="w-16 h-16" src={`src/assets/${id}.png`} alt={id} />
+	<img class="w-16 h-16" src={`/img/${id}.png`} alt={id} />
 </button>

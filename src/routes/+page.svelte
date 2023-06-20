@@ -89,7 +89,7 @@
 					<Motion style={{ rotate }} let:motion>
 						<div use:motion class="h-24 w-24">
 							{#if objetoSuerte}
-								<img src={`src/assets/${objetoSuerte}.png`} alt={objetoSuerte} />
+								<img src={`/img/${objetoSuerte}.png`} alt={objetoSuerte} />
 							{/if}
 						</div>
 					</Motion>
