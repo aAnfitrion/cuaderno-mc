@@ -8,7 +8,7 @@ export function rand() {
 	return randi;
 }
 
-function encontrarId(array: inv[], id: string) {
+export function encontrarId(array: inv[], id: string) {
 	for (let i = 0; i < array.length; i++) {
 		const element = array[i];
 		if (element.id === id) {
@@ -28,11 +28,11 @@ export function encontrarCantidad(array: inv[], id: string, cantidad: number) {
 	}
 }
 
-function setObjetos(array: inv[], id: string, nuevaCantidad: number) {
+export function setObjetos(array: inv[], id: string, nuevaCantidad: number) {
 	for (let i = 0; i < array.length; i++) {
 		if (array[i].id === id) {
 			array[i].cantidad = array[i].cantidad + nuevaCantidad;
-			return;
+			console.log(array[i].id);
 		}
 	}
 }

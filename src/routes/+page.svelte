@@ -20,7 +20,7 @@
 		}
 	};
 
-	import { encontrarCantidad, type inv } from '$lib/handleInv';
+	import { encontrarCantidad, setObjetos, type inv } from '$lib/handleInv';
 	import { inventarioStore } from '$lib/inventario';
 	import {
 		randLog,
@@ -76,6 +76,8 @@
 		inventario = inventario;
 		$inventarioStore = JSON.stringify(inventario);
 	}
+
+
 </script>
 
 <div class="grid grid-cols-12">
