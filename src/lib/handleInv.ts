@@ -32,7 +32,6 @@ export function setObjetos(array: inv[], id: string, nuevaCantidad: number) {
 	for (let i = 0; i < array.length; i++) {
 		if (array[i].id === id) {
 			array[i].cantidad = array[i].cantidad + nuevaCantidad;
-			console.log(array[i].id);
 		}
 	}
 }
