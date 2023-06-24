@@ -20,7 +20,7 @@
 		}
 	};
 
-	import { encontrarCantidad, setObjetos, type inv } from '$lib/handleInv';
+	import { encontrarCantidad, type inv } from '$lib/handleInv';
 	import { inventarioStore } from '$lib/inventario';
 	import {
 		randLog,
@@ -30,8 +30,13 @@
 		nivelDeEspada,
 		randMeat
 	} from '$lib/handleRecursion';
+	import { desbloqueoStore } from '$lib/desbloqueo';
+	import type { des } from '$lib/tipos';
+	import { encontrarProgreso } from '$lib/handleProgresion';
+	import { goto } from '$app/navigation';
 
 	let inventario: inv[];
+	let desbloqueo: des[];
 	let objetoSuerte: string;
 
 	if ($inventarioStore) {
@@ -40,6 +45,14 @@
 		}
 	} else {
 		inventario = [];
+	}
+
+	if ($desbloqueoStore) {
+		if (typeof $desbloqueoStore === 'string') {
+			desbloqueo = JSON.parse($desbloqueoStore);
+		}
+	} else {
+		desbloqueo = [];
 	}
 
 	let accion = true;
@@ -75,9 +88,16 @@
 		objetoSuerte = randMeat(inventario);
 		inventario = inventario;
 		$inventarioStore = JSON.stringify(inventario);
+
+		if (
+			encontrarCantidad(inventario, 'huevo_de_gallina', 1) &&
+			encontrarProgreso(desbloqueo, 'aldeanos') !== true
+		) {
+			desbloqueo.push({ id: 'aldeanos', disponible: true });
+			$desbloqueoStore = JSON.stringify(desbloqueo);
+			goto('aldeanos');
+		}
 	}
-
-
 </script>
 
 <div class="grid grid-cols-12">
