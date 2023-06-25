@@ -3,7 +3,7 @@
 	import { objetos } from '$lib/objetos';
 	import BotonCraftear from '$components/BotonCraftear.svelte';
 	import MostarReceta from '$components/MostarReceta.svelte';
-	import { inventarioStore } from '$lib/inventario';
+	import { inventarioStore } from '$lib/stores';
 	import type { inv } from '$lib/handleInv';
 
 	let inventario: inv[];

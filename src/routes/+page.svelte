@@ -21,7 +21,7 @@
 	};
 
 	import { encontrarCantidad, type inv } from '$lib/handleInv';
-	import { inventarioStore } from '$lib/inventario';
+	import { inventarioStore } from '$lib/stores';
 	import {
 		randLog,
 		nivelDeHacha,
@@ -30,7 +30,7 @@
 		nivelDeEspada,
 		randMeat
 	} from '$lib/handleRecursion';
-	import { desbloqueoStore } from '$lib/desbloqueo';
+	import { desbloqueoStore } from '$lib/stores';
 	import type { des } from '$lib/tipos';
 	import { encontrarProgreso } from '$lib/handleProgresion';
 	import { goto } from '$app/navigation';
